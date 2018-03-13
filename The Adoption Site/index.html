@@ -20,10 +20,18 @@ http://www.templatemo.com/tm-503-newline
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/fontAwesome.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
+        <link rel="stylesheet" href="css/contact.css">
+
+
+        <link rel="shortcut icon" href="img/page-icon.png"/>
+
 
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script type="text/javascript" src="js/learnTable.js"></script>
+        <script type="text/javascript" src="js/checkForm.js"></script>
+        <link rel="stylesheet" href="css/learnTable.css">
     </head>
     <body>
 
@@ -53,7 +61,7 @@ http://www.templatemo.com/tm-503-newline
             <li class="selected">
               <div class="heading">
                 <h1>The Adoption Site</h1>
-                <span>The one stop shop to learn and adopt A furry friend of you own</span>
+                <span>The one stop shop to learn and adopt A furry friend of your own</span>
 
               </div>
               <div class="cd-full-width first-slide">
@@ -64,7 +72,7 @@ http://www.templatemo.com/tm-503-newline
                         <h4>A little about us.</h4>
                         <p> Our mission is to portect and help those four legged friends that need our help. Approximately 6.5 million lonely animals enter U.S. animal shelters nationwide every year. Over half of those our our canine companions. Here at the adoption shop we are trying to stem this issue and using the power of the internet to help. On our site you will be able to find all the information needed to make the best desion possible before you actually adopt a new friend. Take a look through our page, learn about the different breeds and about how thier personalities can work with you! Although we are primarly based in Virginia, let us know where your from and we will try our hardest to help. </p>
                         <div class="primary-button">
-                          <a href="#">Discover More</a>
+                          <a href="#">Back To Top</a>
                         </div>
                       </div>
                     </div>
@@ -81,58 +89,92 @@ http://www.templatemo.com/tm-503-newline
               <div class="cd-half-width second-slide">
                 <div class="container">
                   <div class="row">
-                    <div>
-                      <p>&nbsp;</p>
-                    </div>
                     <div class="col-md-12">
                       <div class="content second-content">
-
                         <div class="row">
-                          <div class="col-md-3 left-image">
-                            <img src="img/Gshep.jpg" width = "256" height = "256">
-                          </div>
-                          <div class="row-md-6">
 
-                              <h4>German Shepard</h4>
-                              <p> The German Shepardis a breed of medium to large-sized working dog that originated in Germany. The breed's officially recognized name is German Shepherd Dog in the English language (sometimes abbreviated as GSD). The breed was once known as the Alsatian in Britain and Ireland. The German Shepherd is a relatively new breed of dog, with their origin dating to 1899. As part of the Herding Group, German Shepherds are working dogs developed originally for herding sheep. Since that time however, because of their strength, intelligence, trainability, and obedience, German Shepherds around the world are often the preferred breed for many types of work, including disability assistance, search-and-rescue, police and military roles, and even acting. The German Shepherd is the second-most registered breed by the American Kennel Club and seventh-most registered breed by The Kennel Club in the United Kingdom.
-                              <div class="primary-button">
-                                <a href="#">Discover More</a>
-                              </div>
+                          <h1>Dog Breeds</h1>
 
-                          </div>
-                        </div>
-                        <div>
-                          <p>&nbsp;</p>
-                        </div>
+                          <input type="text" id="Input" onkeyup="tableSearch()" placeholder="Search for a breed..." title="Search for any breed">
 
-                        <div class="row">
-                          <div class="col-md-3 left-image">
-                            <img src="img/lab.jpg" width = "256" height = "256">
-                          </div>
-                          <div class="col-md-5">
-                            <div class="right-about-text">
-                              <h4>Who we are?</h4>
-                              <p>Fusce neque leo, dapibus sed imperdiet sed, vulputate sed purus. Nam eget justo in nibh facilisis rhoncus. Donec et risus non mauris lobortis convallis. Aliquam id urna quis ante blandit semper.</p>
-                              <div class="primary-button">
-                                <a href="#">Discover More</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                          <table id="learnTable">
+                            <tr class="header">
+                              <th style="width:65%;">Breed Name</th>
+                              <th style="width:35%;">Learn More</th>
+                            </tr>
+                            <tr>
+                              <td>Beagle</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Beagle"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Bulldog</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Bulldog"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Boxer</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Boxer_(dog)"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Dachshund</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Dachshund"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Doberman Pinscher</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Doberman_Pinscher"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>French Bulldog</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/French_Bulldog"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Rottweiler</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Rottweiler"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Godlen Retriver</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Golden_Retriever"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>German Shepard</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/German_Shepherd"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>German Shorthair Pointer</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/German_Shorthair_Pointer"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Great Danes</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Great_Danes"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Labrador Retriver</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Labrador_Retriever"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Siberian Husky</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Siberian_Husky"target="_blank">Link</a> </td>
+                            </tr>
+                            <tr>
+                              <td>Poodle</td>
+                              <td> <a href="https://en.wikipedia.org/wiki/Poodle"target="_blank">Link</a> </td>
+                            </tr>
+
+                          </table>
 
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
+            </div>
+          </li>
 
 <!--###########################################################################################################-->
 
             <li>
               <div class="heading">
                 <h1>Featured</h1>
-                <span>We produce featured product every week</span>
+                <span>Sorry this page is still under construction</span>
               </div>
               <div class="cd-half-width third-slide">
                 <div class="container">
@@ -223,11 +265,11 @@ http://www.templatemo.com/tm-503-newline
                     <div class="col-md-12">
                       <div class="content fivth-content">
                         <div class="row">
-                          <div class="col-md-4">
+                          <div class="col-md-5">
                             <div class="left-info">
-                              <p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id. Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et, auctor iaculis ligula.
+                              <p> Have a question you think you we can answer? Let us know! Just fill out this from with your name, email and inlcude any comments or concerns that you may have any we will do our best to get you a repsonse in the shortest time possible.
                               <br><br>
-                              <em>3344 Donec mollis libero<br>at metus luctus 10110</em>
+                              <em>301 W. Bark St<br>Pawington CT, 06830 </em>
                               </p>
                               <ul class="social-icons">
                                 <i><a href="#"><i class="fa fa-facebook"></i></a></i>
@@ -236,34 +278,26 @@ http://www.templatemo.com/tm-503-newline
                                 <i><a href="#"><i class="fa fa-rss"></i></a></i>
                                 <i><a href="#"><i class="fa fa-behance"></i></a></i>
                               </ul>
+                              <br>
                             </div>
                           </div>
-                          <div class="col-md-8">
+                          <div class="col-md-7">
                             <div class="row">
-                              <form id="contact" action="" method="post">
-                                <div class="col-md-6">
-                                  <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                  <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Message</button>
-                                  </fieldset>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
+                              <form name="contactForm" onsubmit="return checkForm(this);" method="get">
+                                  <h4> Your first and last name </h4>
+                                   <input type="text" id="inputfield" name="name" placeholder="Your name..">
+                                   <br>
+                                  <h4> Your email address </h4>
+                                   <input type="text" id="emailfield" name="emailaddress" placeholder="Your email address..">
+                                   <br>
+                                   <h2> Your message to us.. </h2>
+                                   <textarea type="text" id="messagebox" name="message">
+                                   </textarea>
+                                   <br>
+                                   <div style="width:100%; text-align:center;">
+                                     <input type="submit" value="Submit">
+                                   </div>
+                            </form>
                         </div>
                       </div>
                     </div>
@@ -287,6 +321,7 @@ http://www.templatemo.com/tm-503-newline
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/learnTable.js"></script>
 
     </body>
 </html>
