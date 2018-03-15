@@ -277,10 +277,10 @@ http://www.templatemo.com/tm-503-newline
                                    <input type="text" id="inputfield" name="name" placeholder="Your name..">
                                    <br>
                                   <h4> Your email address </h4>
-                                   <input type="text" id="emailfield" name="emailaddress" placeholder="Your email address..">
+                                   <input type="text" id="emailfield" name="email" placeholder="Your email address..">
                                    <br>
                                    <h2> Your message to us.. </h2>
-                                   <input type="text" id="messagebox" name="message">
+                                   <input type="text" id="messagebox" name="message" placeholder="Have something to tell us?">
                                    <br>
                                    <div style="width:100%; text-align:center;">
                                      <input type="submit" description="Submit">
@@ -289,44 +289,51 @@ http://www.templatemo.com/tm-503-newline
 
 
                             <?php
+                           //If the method is post, then start execution of this
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                              //initializes the name and message variables
+                             $name = trim($_POST['name']);
+                             $message = trim($_POST['message']);
+                             $email = trim($_POST["email"]);
+                             //placeholder variable that's going to be replaced by database of customers/users and the messages they've sent
+                            $names = array(
+                                           "John Doe" => "test message",
+                                           "Jane Doe" => "test message 2");
+                            //initialize variables to help in the looping through of the array
+                            $i = 0;
+                            $present = 0;
 
-                             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                              $name = $_POST['name'];
-                              $message = $_POST['message'];
+                            //loops through the array/database of names and appends the new message to the previous one
+                            //array to be replaced with some form of persistence like a database or file io
+                            // To be uncommented when
 
-
-                             $names = array();
-                             $i = 0;
-
-                             $present = 0;
-
-                             
-                              for ( $i; $i < count($names); $i++){
-
-                                if ($name == $names[i]) {
-                                  $present = 1;
-                                  $names[$name] += "\r\n" + $message;
-                                }
-                              }
-
-                              if  ($present == 0) {
-                                $names[$name] = $message;
-
-                              }
-
-                              $msg = "Thanks " . $name . " your message has been sent!";
-                              echo "<script type='text/javascript'>alert('$msg');</script>";
-
-                              //echo "Thanks " . $name . "your message has been sent!";
-                            }
+                             for (; $i < count($names); $i++){
+                               if (in_array($name, $names)) {
+                                 $present = 1;
+                                 $names[$name] += "\r\n" + $message;
+                               }
+                             }
+                             //or adds the user's name and message to the array if they're a first time user
+                             if  ($present == 0) {
+                               $names[$name] = $message;
+                             }
 
 
-
-
-                             ?>
-
-
-
+                             //Checks for a valid email
+                             //$email = test_input($_POST["emailaddress"]);
+                             if ( !filter_var($email, FILTER_VALIDATE_EMAIL) ) {
+                               $emailErr = "Please enter a valid email";
+                               echo "<script type='text/javascript'>alert('$emailErr');</script>";
+                               }
+                            else{
+                                 //sends an alert telling the user that their message has been sent successfully
+                                 //if the user gave a name, it is inluded in the message
+                                 if (isset($name)) {  $msg = "Thanks " . $name . ", your message has been sent!"; }
+                                 if (empty($name)) {  $msg = "Thanks, your message has been sent!"; }
+                                 echo "<script type='text/javascript'>alert('$msg');</script>";
+                               }
+                          }
+                            ?>
 
                         </div>
                       </div>
