@@ -67,59 +67,23 @@ http://www.templatemo.com/tm-503-newline
               <div class="col-md-12">
                 <div class="content fourth-content">
                   <div class="row">
-                    <form action=<?php $_SERVER['PHP_SELF'] ?> method=Post>
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method=POST>
                     <h4> Type in your password </h4>
                      <input type="text" id="inputfield" name="emailaddr" placeholder="Your Email...">
                      <br>
                      <h4> Type in your password </h4>
                      <input type="password" id="inputfield" name="password" placeholder="Your password..">
                      <br>
-                     <input type="submit" description="Click to Log in">   
+                     <input type="submit" description="Click to Log in">
                     </form>
-               
-                     <br>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
 
-<?php
+                    <?php
                      //If the method is post, then start execution of this
                       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         //initializes the name and message variables
-                       $name = trim($_POST['name']);
-                       $message = trim($_POST['message']);
-                       $email = trim($_POST["email"]);
-                       //placeholder variable that's going to be replaced by database of customers/users and the messages they've sent
-                      $names = array(
-                                     "John Doe" => "test message",
-                                     "Jane Doe" => "test message 2");
-                      //initialize variables to help in the looping through of the array
-                      $i = 0;
-                      $present = 0;
-
-                      //loops through the array/database of names and appends the new message to the previous one
-                      //array to be replaced with some form of persistence like a database or file io
-                      // To be uncommented when
-
-                       for (; $i < count($names); $i++){
-                         if (in_array($name, $names)) {
-                           $present = 1;
-                           $names[$name] += "\r\n" + $message;
-                         }
-                       }
-                       //or adds the user's name and message to the array if they're a first time user
-                       if  ($present == 0) {
-                         $names[$name] = $message;
-                       }
-
-
-                       //Checks for a valid email
-                       //$email = test_input($_POST["emailaddress"]);
+                       $email = trim($_POST['emailaddr']);
+                       $password = trim($_POST['password']);
+                       
                        if ( !filter_var($email, FILTER_VALIDATE_EMAIL) ) {
                          $emailErr = "Please enter a valid email";
                          echo "<script type='text/javascript'>alert('$emailErr');</script>";
@@ -133,6 +97,17 @@ http://www.templatemo.com/tm-503-newline
                          }
                     }
                       ?>
+
+                     <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
 
 <footer>
   <p>Copyright &copy; 2018 The Adoption Company
