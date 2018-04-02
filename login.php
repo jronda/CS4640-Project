@@ -56,38 +56,28 @@ http://www.templatemo.com/tm-503-newline
       </div> <!-- .cd-slider-nav -->
 
 
-
       <li>
         <div class="heading">
-          <h1>Featured</h1>
-          <span>Sorry this page is still under construction</span>
+          <h1>Log in</h1>
+          <span>for us to remember you in the future</span>
         </div>
-        <div class="cd-half-width third-slide">
+        <div class="cd-half-width fourth-slide">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <div class="content third-content">
+                <div class="content fourth-content">
                   <div class="row">
-                    <div class="col-md-7 left-image">
-                      <img src="img/left-feature-image.png">
-                    </div>
-                    <div class="col-md-5">
-                      <div class="right-feature-text">
-                        <h4>Featured Product: <em>Newline</em></h4>
-                        <p>Lorem ipsum dolor amet, consecte adipiscing elit, quisque dictum convallis mi. In dapibus auctor dictum donec mattis quis eros ultricies feugiat. Morbi congue faucibus mi, ague blandit curabitur ac lacinia.</p>
-                        <div class="feature-list">
-                          <ul>
-                            <p>- Suspendisse mattis finibus sem</p>
-                            <p>- Pellentesque et urna vel lectus</p>
-                            <p>- Vestibulum iaculis nisi dui</p>
-                            <p>- Donec sagittis eros , ac tempus ligula</p>
-                            <p>- Integer sapien risus, auctor</p>
-                          </ul>
-                        </div>
-                        <div class="primary-button">
-                          <a href="#">Discover More</a>
-                        </div>
-                      </div>
+                    <form action=<?php $_SERVER['PHP_SELF'] ?> method=Post>
+                    <h4> Type in your password </h4>
+                     <input type="text" id="inputfield" name="emailaddr" placeholder="Your Email...">
+                     <br>
+                     <h4> Type in your password </h4>
+                     <input type="password" id="inputfield" name="password" placeholder="Your password..">
+                     <br>
+                     <input type="submit" description="Click to Log in">   
+                    </form>
+               
+                     <br>
                     </div>
                   </div>
                 </div>
@@ -97,7 +87,52 @@ http://www.templatemo.com/tm-503-newline
         </div>
       </li>
 
+<?php
+                     //If the method is post, then start execution of this
+                      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        //initializes the name and message variables
+                       $name = trim($_POST['name']);
+                       $message = trim($_POST['message']);
+                       $email = trim($_POST["email"]);
+                       //placeholder variable that's going to be replaced by database of customers/users and the messages they've sent
+                      $names = array(
+                                     "John Doe" => "test message",
+                                     "Jane Doe" => "test message 2");
+                      //initialize variables to help in the looping through of the array
+                      $i = 0;
+                      $present = 0;
 
+                      //loops through the array/database of names and appends the new message to the previous one
+                      //array to be replaced with some form of persistence like a database or file io
+                      // To be uncommented when
+
+                       for (; $i < count($names); $i++){
+                         if (in_array($name, $names)) {
+                           $present = 1;
+                           $names[$name] += "\r\n" + $message;
+                         }
+                       }
+                       //or adds the user's name and message to the array if they're a first time user
+                       if  ($present == 0) {
+                         $names[$name] = $message;
+                       }
+
+
+                       //Checks for a valid email
+                       //$email = test_input($_POST["emailaddress"]);
+                       if ( !filter_var($email, FILTER_VALIDATE_EMAIL) ) {
+                         $emailErr = "Please enter a valid email";
+                         echo "<script type='text/javascript'>alert('$emailErr');</script>";
+                         }
+                      else{
+                           //sends an alert telling the user that their message has been sent successfully
+                           //if the user gave a name, it is inluded in the message
+                           if (isset($name)) {  $msg = "Thanks " . $name . ", your message has been sent!"; }
+                           if (empty($name)) {  $msg = "Thanks, your message has been sent!"; }
+                           echo "<script type='text/javascript'>alert('$msg');</script>";
+                         }
+                    }
+                      ?>
 
 <footer>
   <p>Copyright &copy; 2018 The Adoption Company
